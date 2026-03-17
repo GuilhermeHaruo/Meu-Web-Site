@@ -2,7 +2,7 @@
 
 Este é o repositório do meu portfólio web profissional. O projeto foi desenvolvido para centralizar meus projetos acadêmicos, experiências de extensão no **IFSP** e certificações técnicas, servindo como uma vitrine para oportunidades de estágio em **Desenvolvimento de Sistemas**.
 
-![Preview do Site](preview.png)
+![Preview do Site](Preview.png)
 
 ---
 
