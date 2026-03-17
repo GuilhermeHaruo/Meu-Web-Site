@@ -198,3 +198,28 @@ footer { padding: 4rem 10%; text-align: center; border-top: 2px solid var(--cyan
 
 .img-cert { cursor: zoom-in; transition: 0.3s; }
 .img-cert:hover { opacity: 0.7; }
+/* Ajustes para telas menores (Celulares) */
+@media (max-width: 600px) {
+    .container {
+        padding: 0 15px; /* Evita que o texto encoste nas bordas do celular */
+    }
+
+    .certificados-grid {
+        gap: 1rem; /* Diminui o espaço entre os cards para ganhar tela */
+    }
+
+    .modal-conteudo {
+        max-width: 95%; /* No celular, a imagem ocupa quase toda a largura */
+        margin-top: 20%; /* Centraliza melhor verticalmente */
+    }
+
+    .fechar-modal {
+        top: 10px;
+        right: 20px;
+        font-size: 50px; /* Aumenta o 'X' para ser mais fácil de clicar com o dedo */
+    }
+    
+    h2 {
+        font-size: 1.5rem; /* Ajusta o tamanho dos títulos para não ocuparem muito espaço */
+    }
+}
