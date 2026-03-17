@@ -1,0 +1,200 @@
+/* 1. CONFIGURAÇÕES GERAIS */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600&display=swap');
+
+:root {
+    --bg-color: #0b0f1a;
+    --card-bg: rgba(30, 41, 59, 0.4);
+    --border-color: #1e293b;
+    --cyan-tech: #38bdf8;
+    --text-main: #f8fafc;
+    --text-secondary: #94a3b8;
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 2. MODO CLARO (LIGHT MODE) */
+body.light-mode {
+    --bg-color: #f1f5f9;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --text-main: #1e293b;
+    --text-secondary: #475569;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+html { scroll-behavior: smooth; }
+body { background-color: var(--bg-color); color: var(--text-main); transition: background 0.3s ease; overflow-x: hidden; }
+
+/* 3. NAVEGAÇÃO */
+header {
+    padding: 1rem 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-color);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo { font-family: 'Fira Code', monospace; font-size: 1.5rem; font-weight: bold; }
+.logo span { color: var(--cyan-tech); }
+nav ul { display: flex; list-style: none; gap: 2rem; align-items: center; }
+nav a { text-decoration: none; color: var(--text-main); font-weight: 500; transition: 0.3s; }
+nav a:hover { color: var(--cyan-tech); }
+
+#theme-toggle {
+    background: none; border: 1px solid var(--border-color);
+    color: var(--cyan-tech); cursor: pointer;
+    padding: 5px 10px; border-radius: 5px; font-size: 1.1rem;
+}
+
+/* 4. SEÇÕES E BORDAS */
+section { padding: 6rem 10%; border-top: 1px solid var(--border-color); position: relative; }
+
+section::before {
+    content: ""; position: absolute; top: 0; left: 50%;
+    transform: translateX(-50%); width: 0%; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--cyan-tech), transparent);
+    transition: width 0.8s ease;
+}
+section:hover::before { width: 100%; }
+
+h2 { font-family: 'Fira Code', monospace; color: var(--cyan-tech); margin-bottom: 2rem; }
+
+/* 5. HERO E HABILIDADES */
+#hero { height: 60vh; text-align: center; display: flex; align-items: center; justify-content: center; }
+.highlight { color: var(--cyan-tech); text-shadow: 0 0 10px rgba(56, 189, 248, 0.2); }
+
+.habilidades { margin-top: 4rem; text-align: center; }
+.icones-tech { display: flex; gap: 25px; font-size: 3.5rem; flex-wrap: wrap; justify-content: center; margin-top: 1.5rem; }
+.icones-tech i { transition: var(--transition); cursor: pointer; }
+.icones-tech i:hover { transform: scale(1.2); filter: drop-shadow(0 0 10px var(--cyan-tech)); }
+
+/* 6. GRID E CARDS */
+.sobre-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.resumo, .carta { background: var(--card-bg); border-left: 4px solid var(--cyan-tech); padding: 2rem; border-radius: 8px; border: 1px solid var(--border-color); }
+
+.projeto-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+.card { background: var(--card-bg); border: 1px solid var(--border-color); padding: 2rem; border-radius: 12px; transition: var(--transition); }
+.card:hover { border-color: var(--cyan-tech); transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+
+/* 7. BOTÕES E FOOTER */
+.btns { margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; }
+.btn-primary { background: var(--cyan-tech); color: #000; padding: 0.8rem 1.8rem; text-decoration: none; border-radius: 6px; font-weight: bold; }
+.btn-secondary { border: 1px solid var(--cyan-tech); color: var(--cyan-tech); padding: 0.8rem 1.8rem; text-decoration: none; border-radius: 6px; }
+
+footer { padding: 4rem 10%; text-align: center; border-top: 2px solid var(--cyan-tech); background: linear-gradient(to bottom, var(--bg-color), #000); }
+.social-links a { color: var(--text-main); text-decoration: none; margin: 0 15px; font-family: 'Fira Code', monospace; }
+
+.certificados-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.cert-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.cert-img-container {
+    width: 100%;
+    height: 150px;
+    background-color: #1a1a1a; /* Cor de fundo caso a imagem demore a carregar */
+    overflow: hidden;
+    border-bottom: 2px solid var(--cyan-tech);
+}
+
+.cert-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.cert-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--cyan-tech);
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.1);
+}
+
+.cert-card:hover img {
+    transform: scale(1.1);
+}
+
+.cert-info {
+    padding: 1.2rem;
+}
+
+.cert-info h3 {
+    font-size: 1rem;
+    color: var(--text-main);
+    margin-bottom: 5px;
+}
+
+.cert-info p {
+    color: var(--cyan-tech);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+.cert-zoom {
+    cursor: zoom-in;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Garante que a imagem ampliada fique por cima de tudo */
+.lum-lightbox {
+    z-index: 10000;
+}
+/* Garante que a galeria apareça na frente de menus fixos */
+.lum-lightbox {
+    z-index: 99999 !important;
+}
+
+/* Remove qualquer contorno azul estranho ao clicar */
+.cert-zoom:focus {
+    outline: none;
+}
+/* O Modal (fundo) */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 9999; 
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    cursor: pointer;
+}
+
+/* Imagem dentro do modal */
+.modal-conteudo {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+    margin-top: 5%;
+    border: 3px solid var(--cyan-tech);
+    border-radius: 8px;
+}
+
+/* Botão fechar */
+.fechar-modal {
+    position: absolute;
+    top: 20px; right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.img-cert { cursor: zoom-in; transition: 0.3s; }
+.img-cert:hover { opacity: 0.7; }
